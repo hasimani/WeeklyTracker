@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Week {{Week_num}}</title>
+
+    <script>
+      // Function to add a new task input field to the form
+      function addTask() {
+        // Get the form and the task container
+        var form = document.getElementById('task-form');
+        var taskContainer = document.getElementById('task-container');
+        
+ 
+        // Create a new task input field
+        var taskInput = document.createElement('input');
+        taskInput.type = 'text';
+        taskInput.name = 'tasks[]';  // Use brackets to create an array of values
+        taskInput.required = true;
+    
+
+        // Create a new satisfaction score input field
+        var scoreInput = document.createElement('input');
+        scoreInput.type = 'number';
+        scoreInput.name = 'scores[]';  // Use brackets to create an array of values
+        scoreInput.required = true;
+        scoreInput.min = '0';
+        scoreInput.max = '100';
+        
+        // Add the new input fields to the task container
+        taskContainer.appendChild(taskInput);
+        taskContainer.appendChild(scoreInput);
+        taskContainer.appendChild(document.createElement('br'));
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Week {{Week_num}} for {{user}}</h1>
+    
+    <h2>{{Date}}</h2>    
+
+    <form id="task-form" action='/{{index}}' method="POST">
+
+        <div id="task-container">
+        <!-- Initial task and score input fields -->
+        <h2>For the goal: {{ GOAL }}</h2>
+        <label for="task" style="padding-right: 156px;">Tasks</label>
+        <label for="score">Satisfaction Scores</label>
+        <br>
+        <input type="text" name="tasks[]" id="task-1" required >
+        <input type="number" name="scores[]" id="score-1" required min="0" max="100">
+        <br>
+        </div>
+        <!-- Button to add a new task input field -->
+        <button type="button" onclick="addTask()">Add Task</button>
+        <br><br>
+     
+        
+      <!-- Button to submit the form -->
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

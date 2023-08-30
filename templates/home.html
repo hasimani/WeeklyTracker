@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weekly Satisfaction Tool</title>
+</head>
+<body>
+    <h1>Weekly Satisfaction Tool</h1>
+    <form method="post" action="/result">
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Satisfaction Score</th>
+            </tr>
+            <tr>
+                <td><input type="text" name="task[]"></td>
+                <td><input type="number" name="score[]"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="task[]"></td>
+                <td><input type="number" name="score[]"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="task[]"></td>
+                <td><input type="number" name="score[]"></td>
+            </tr>
+        </table>
+        <input type="submit" value="Calculate">
+    </form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Task Manager</title>
+</head>
+<body>
+    <h1>Set Week Number</h1>
+    <form method="POST" action="/">
+        <label for="user">For User:</label>
+        <input type="text" id="user_name" name="user">
+        <br><br>
+
+        <label for="week_number">Week Number:</label>
+        <input type="number" id="number" name="week_number">
+        <br><br>
+
+        <label for="date">Select or enter a date:</label>
+        <input type="date" id="date" name="date" value="" onchange="toggleManualDate()">
+    
+        <br><br>
+        
+        <input type="submit" value="Set the values">
+    </form>
+
+ 
+    <script>
+      function toggleManualDate() {
+        var dateInput = document.getElementById("date");
+        var manualDateContainer = document.getElementById("manualDateContainer");
+        var manualDateInput = document.getElementById("manualDate");
+  
+        if (dateInput.value === "") {
+          manualDateContainer.style.display = "block";
+          manualDateInput.required = true;
+        } else {
+          manualDateContainer.style.display = "none";
+          manualDateInput.required = false;
+          manualDateInput.value = "";
+        }
+      }
+    </script>    
+
+</body>
+</html>
